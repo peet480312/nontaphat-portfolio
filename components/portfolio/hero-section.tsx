@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   const [showProfileImage, setShowProfileImage] = useState(true)
+  const [tilt, setTilt] = useState({ x: 0, y: 0 })
+
   const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     const target = document.querySelector(href)
@@ -31,6 +33,23 @@ export function HeroSection() {
     const target = e.currentTarget as HTMLElement
     target.style.setProperty("--x", "50%")
     target.style.setProperty("--y", "50%")
+  }
+
+  const handleProfileTiltMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.currentTarget as HTMLDivElement
+    const rect = target.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+
+    const maxTilt = 4
+    const rotateY = Math.max(-maxTilt, Math.min(maxTilt, ((x / rect.width) - 0.5) * maxTilt))
+    const rotateX = Math.max(-maxTilt, Math.min(maxTilt, ((0.5 - (y / rect.height))) * maxTilt))
+
+    setTilt({ x: rotateX, y: rotateY })
+  }
+
+  const handleProfileTiltLeave = () => {
+    setTilt({ x: 0, y: 0 })
   }
 
   const neuralNodes = [
@@ -59,9 +78,10 @@ export function HeroSection() {
       className="tech-grid relative flex min-h-screen flex-col justify-center pt-20"
       style={{
         background: `
-          radial-gradient(ellipse at top right, oklch(0.72 0.19 220 / 0.08) 0%, transparent 50%),
-          radial-gradient(ellipse at bottom left, oklch(0.5 0.15 280 / 0.05) 0%, transparent 50%),
-          oklch(0.08 0.015 250)
+          radial-gradient(ellipse 60% 55% at 85% 25%, rgba(37, 99, 235, 0.10) 0%, rgba(37, 99, 235, 0.04) 28%, transparent 58%),
+          radial-gradient(ellipse 45% 45% at 18% 18%, rgba(56, 189, 248, 0.06) 0%, rgba(56, 189, 248, 0.02) 30%, transparent 58%),
+          radial-gradient(ellipse 45% 45% at 72% 78%, rgba(14, 165, 233, 0.05) 0%, transparent 52%),
+          linear-gradient(135deg, #020617 0%, #0f172a 45%, #020617 100%)
         `,
       }}
     >
@@ -73,9 +93,14 @@ export function HeroSection() {
             <span className="font-code">Aspiring AI & Web Developer</span>
           </div>
           
-          <h1 className="hero-name-shine hero-reveal mb-4 text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl" style={{ animationDelay: "0.18s" }}>
-            Nontaphat Petgorn
-          </h1>
+          <div className="hero-reveal mb-4" style={{ animationDelay: "0.18s" }}>
+            <h1
+              data-text="Nontaphat Petgorn"
+              className="hero-name-shine text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl"
+            >
+              Nontaphat Petgorn
+            </h1>
+          </div>
           
           <h2 className="hero-reveal mb-2 text-xl font-semibold text-slate-100 md:text-2xl" style={{ animationDelay: "0.28s" }}>
               Computer Engineering & AI
@@ -143,9 +168,27 @@ export function HeroSection() {
           <div className="relative">
             {/* Outer ring with gradient */}
             <div className="absolute inset-[-8px] rounded-full bg-gradient-to-br from-sky-400/20 via-transparent to-blue-500/15 blur-sm" />
-            
+
             {/* Main avatar container */}
-            <div className="np-avatar-shell hero-avatar-fade-in relative flex h-56 w-56 items-center justify-center rounded-full border-2 border-blue-500/40 bg-slate-900/90 shadow-[0_0_40px_rgba(59,130,246,0.18)] md:h-72 md:w-72" style={{ animationDelay: "0.72s" }}>
+            <div
+              className="profile-orbit-wrap profile-hover-group hover-group np-avatar-shell hero-avatar-fade-in relative flex h-56 w-56 items-center justify-center rounded-full border-2 border-blue-500/40 bg-slate-900/90 shadow-[0_0_40px_rgba(59,130,246,0.18)] transition-all duration-300 ease-out md:h-72 md:w-72"
+              style={{
+                animationDelay: "0.72s",
+                ['--tilt-x' as string]: `${tilt.x}deg`,
+                ['--tilt-y' as string]: `${tilt.y}deg`,
+              }}
+              onMouseMove={handleProfileTiltMove}
+              onMouseLeave={handleProfileTiltLeave}
+            >
+              <div className="tech-hud-ring tech-hud-ring-outer outer-hud-ring" aria-hidden="true" />
+              <div className="tech-hud-ring tech-hud-ring-middle middle-hud-ring" aria-hidden="true" />
+              <div className="tech-hud-ring tech-hud-ring-inner inner-hud-ring" aria-hidden="true" />
+              <span className="tech-hud-segment segment-a" aria-hidden="true" />
+              <span className="tech-hud-segment segment-b" aria-hidden="true" />
+              <span className="tech-hud-segment segment-c" aria-hidden="true" />
+              <span className="tech-hud-segment segment-d" aria-hidden="true" />
+              <span className="tech-hud-scan" aria-hidden="true" />
+
               {/* Inner decorative ring */}
               <div className="np-ring-spin absolute inset-4 rounded-full border border-blue-500/40 bg-slate-950/60" />
 
@@ -184,16 +227,13 @@ export function HeroSection() {
 
               <div className="np-tech-orbit-ring absolute inset-1 rounded-full border border-cyan-300/25" />
               <div className="np-tech-orbit-ring-soft absolute inset-3 rounded-full border border-sky-200/20" />
-              <div className="np-orbit-dot np-orbit-dot-a" />
-              <div className="np-orbit-dot np-orbit-dot-b" />
-              <div className="np-orbit-dot np-orbit-dot-c" />
 
               <div className="np-profile-frame absolute inset-0 z-10 flex items-center justify-center overflow-hidden rounded-full border border-cyan-400/40 bg-slate-950/80 shadow-[0_0_24px_rgba(14,165,233,0.18)]">
                 {showProfileImage ? (
                   <img
                     src="/profile.jpg"
                     alt="Portrait of Nontaphat Petgorn"
-                    className="np-profile-image h-full w-full rounded-full object-cover"
+                    className="profile-image np-profile-image h-full w-full rounded-full object-cover"
                     draggable={false}
                     onError={() => setShowProfileImage(false)}
                   />
