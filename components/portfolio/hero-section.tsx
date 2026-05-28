@@ -94,13 +94,13 @@ export function HeroSection() {
           </div>
           
           <div className="hero-reveal mb-4" style={{ animationDelay: "0.18s" }}>
-            <h1
-              data-text="Nontaphat Petgorn"
-              className="hero-name-shine text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl"
-            >
-              Nontaphat Petgorn
-            </h1>
-          </div>
+  <h1
+    data-text="Nontaphat Petgorn"
+    className="hero-name-shine text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl"
+  >
+    Nontaphat Petgorn
+  </h1>
+</div>
           
           <h2 className="hero-reveal mb-2 text-xl font-semibold text-slate-100 md:text-2xl" style={{ animationDelay: "0.28s" }}>
               Computer Engineering & AI
