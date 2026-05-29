@@ -52,25 +52,28 @@ export function SkillsSection() {
   return (
     <section id="skills" className="py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-2 flex items-center justify-center gap-2">
-          <Cpu className="h-5 w-5 text-primary" />
-          <h2 className="gradient-text text-center text-3xl font-bold md:text-4xl">Skills</h2>
-        </div>
-        <p className="mb-12 text-center font-code text-sm text-muted-foreground">{"// ทักษะของผม"}</p>
+       <div className="mb-12 text-center">
+  <div className="group inline-flex cursor-pointer items-center justify-center gap-2 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-105 hover:drop-shadow-[0_8px_18px_rgba(59,130,246,0.25)] active:-translate-y-1 active:scale-[1.03]">
+  <Cpu className="h-5 w-5 text-primary transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]" />
+  <h2 className="gradient-text text-center text-3xl font-bold transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 md:text-4xl">
+    Skills
+  </h2>
+</div>
+</div>
 
         <div className="grid gap-6 md:grid-cols-2">
           {skillCategories.map((category) => (
             <Card
               key={category.title}
-              className="card-glow group overflow-hidden transition-all duration-300"
-            >
+className="card-glow group overflow-hidden rounded-2xl transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.025] hover:border-blue-300/70 hover:shadow-[0_18px_45px_rgba(59,130,246,0.18)] active:-translate-y-1 active:scale-[1.01]"            >
               <CardContent className={`relative p-6 bg-gradient-to-br ${category.color} to-transparent`}>
                 <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                    <category.icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground">{category.title}</h3>
-                </div>
+     <div className="skill-icon-shine flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg bg-primary/10 transition-all duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:-rotate-6 group-hover:scale-105 group-hover:bg-blue-100 group-hover:shadow-[0_0_14px_rgba(59,130,246,0.18)]">
+  <category.icon className="relative z-20 h-5 w-5 text-primary transition-all duration-300 ease-out group-hover:scale-105 group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.28)]" />
+</div>
+<h3 className="text-lg font-semibold text-foreground transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:scale-110 group-hover:text-slate-950 group-hover:drop-shadow-[0_8px_18px_rgba(59,130,246,0.28)]">
+  {category.title}
+</h3>                </div>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <Badge

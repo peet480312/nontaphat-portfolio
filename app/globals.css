@@ -1078,3 +1078,332 @@
     transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
     filter 650ms ease;
 }
+.career-title-pop {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateY(0) scale(1);
+  transition:
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 600ms ease;
+  will-change: transform, filter;
+}
+
+.career-title-pop:hover {
+  transform: translateY(-4px) scale(1.035);
+  filter:
+    drop-shadow(0 6px 14px rgba(59, 130, 246, 0.28))
+    drop-shadow(0 0 18px rgba(96, 165, 250, 0.22));
+}
+.text-shine-flow::before {
+  content: "";
+  position: absolute;
+  top: -45%;
+  left: -120%;
+  width: 90%;
+  height: 190%;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 22%,
+    rgba(226, 232, 240, 0.34) 38%,
+    rgba(255, 255, 255, 0.68) 50%,
+    rgba(203, 213, 225, 0.32) 62%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  filter: blur(3px);
+  opacity: 0.65;
+  pointer-events: none;
+  animation: textShineFlow 3.8s ease-in-out infinite;
+}
+
+@keyframes textShineFlow {
+  0% {
+    left: -120%;
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.65;
+  }
+
+  55% {
+    left: 135%;
+    opacity: 0.65;
+  }
+
+  70% {
+    left: 135%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 135%;
+    opacity: 0;
+  }
+}
+.card-full-shine {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.card-full-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 22%,
+    rgba(147, 197, 253, 0.12) 34%,
+    rgba(96, 165, 250, 0.28) 44%,
+    rgba(255, 255, 255, 0.72) 50%,
+    rgba(96, 165, 250, 0.28) 56%,
+    rgba(147, 197, 253, 0.12) 66%,
+    transparent 78%,
+    transparent 100%
+  );
+  background-size: 260% 100%;
+  background-position: 130% 0;
+  transition: opacity 300ms ease;
+  will-change: background-position, opacity;
+}
+
+.card-full-shine:hover::before,
+.card-full-shine:active::before {
+  opacity: 1;
+  animation: cardFullShineFlow 6s linear infinite;
+}
+
+.card-full-shine > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes cardFullShineFlow {
+  from {
+    background-position: 130% 0;
+  }
+
+  to {
+    background-position: -130% 0;
+  }
+}
+
+.career-icon-shine {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.95), transparent 38%),
+    linear-gradient(
+      135deg,
+      rgba(239, 246, 255, 0.98),
+      rgba(219, 234, 254, 0.82),
+      rgba(191, 219, 254, 0.62)
+    );
+  box-shadow:
+    0 0 0 1px rgba(147, 197, 253, 0.3),
+    0 10px 28px rgba(59, 130, 246, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.career-icon-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+
+  background-image: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.12) 20%,
+    rgba(219, 234, 254, 0.45) 38%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(219, 234, 254, 0.45) 62%,
+    rgba(191, 219, 254, 0.12) 80%,
+    transparent 100%
+  );
+
+  background-size: 240% 100%;
+  background-position: 130% 0;
+  background-repeat: no-repeat;
+
+  transition: opacity 180ms ease;
+  will-change: background-position, opacity;
+}
+
+.group:hover .career-icon-shine,
+.group:active .career-icon-shine {
+  box-shadow:
+    0 0 0 1px rgba(96, 165, 250, 0.42),
+    0 0 26px rgba(59, 130, 246, 0.28),
+    0 14px 34px rgba(59, 130, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.group:hover .career-icon-shine::after,
+.group:active .career-icon-shine::after,
+.career-icon-shine:hover::after {
+  opacity: 1;
+  animation: careerIconShineFlow 2.8s ease-in-out infinite;
+}
+@keyframes careerIconShineFlow {
+  0% {
+    background-position: 130% 0;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  55% {
+    background-position: -130% 0;
+    opacity: 1;
+  }
+
+  70% {
+    background-position: -130% 0;
+    opacity: 0;
+  }
+
+  100% {
+    background-position: -130% 0;
+    opacity: 0;
+  }
+}
+
+.career-title-bounce {
+  transform: translateY(0) scale(1);
+  transform-origin: center;
+  transition:
+    transform 360ms cubic-bezier(0.34, 1.8, 0.64, 1),
+    color 360ms ease,
+    filter 360ms ease;
+}
+
+.group:hover .career-title-bounce,
+.group:active .career-title-bounce {
+  transform: translateY(-8px) scale(1.085);
+  color: rgb(2, 6, 23);
+  filter: drop-shadow(0 8px 18px rgba(59, 130, 246, 0.28));
+}
+
+/* Remove black focus/tap outline on cards and nav */
+.card-full-shine,
+.card-full-shine:focus,
+.card-full-shine:focus-visible,
+.card-full-shine:active,
+.career-icon-shine,
+.career-icon-shine:focus,
+.career-icon-shine:focus-visible,
+.career-icon-shine:active,
+nav a,
+nav a:focus,
+nav a:focus-visible,
+nav a:active,
+button,
+button:focus,
+button:focus-visible,
+button:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+*:focus-visible {
+  outline: none !important;
+}
+
+.skills-title-bounce {
+  transform: translateY(0) scale(1);
+  transform-origin: center;
+  transition:
+    transform 360ms cubic-bezier(0.34, 1.8, 0.64, 1),
+    filter 360ms ease;
+}
+
+.skills-title-bounce:hover,
+.skills-title-bounce:active {
+  transform: translateY(-8px) scale(1.08);
+  filter: drop-shadow(0 10px 22px rgba(59, 130, 246, 0.3));
+}
+
+.skill-icon-shine {
+  position: relative;
+  isolation: isolate;
+}
+
+.skill-icon-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+
+  background-image: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.12) 20%,
+    rgba(219, 234, 254, 0.45) 38%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(219, 234, 254, 0.45) 62%,
+    rgba(191, 219, 254, 0.12) 80%,
+    transparent 100%
+  );
+
+  background-size: 240% 100%;
+  background-position: 130% 0;
+  background-repeat: no-repeat;
+  transition: opacity 180ms ease;
+  will-change: background-position, opacity;
+}
+
+.group:hover .skill-icon-shine::after,
+.group:active .skill-icon-shine::after,
+.skill-icon-shine:hover::after {
+  animation: skillIconShineFlow 3.2s ease-in-out infinite;
+}
+
+@keyframes skillIconShineFlow {
+  0% {
+    background-position: 130% 0;
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  45% {
+    background-position: -130% 0;
+    opacity: 1;
+  }
+
+  55% {
+    background-position: -130% 0;
+    opacity: 0;
+  }
+
+  99% {
+    background-position: -130% 0;
+    opacity: 0;
+  }
+
+  100% {
+    background-position: 130% 0;
+    opacity: 0;
+  }
+}
