@@ -1407,3 +1407,471 @@ button:active {
     opacity: 0;
   }
 }
+
+.skill-card-shine {
+  position: relative;
+  isolation: isolate;
+}
+
+.skill-card-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.12) 24%,
+    rgba(255, 255, 255, 0.58) 50%,
+    rgba(191, 219, 254, 0.12) 76%,
+    transparent 100%
+  );
+
+  background-size: 240% 100%;
+  background-position: 130% 0;
+  background-repeat: no-repeat;
+  transition: opacity 180ms ease;
+  will-change: background-position, opacity;
+}
+
+.skill-card-shine:hover::after,
+.skill-card-shine:active::after {
+  opacity: 1;
+  animation: skillCardShineFlow 3.2s ease-in-out infinite;
+}
+
+.skill-card-shine > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes skillCardShineFlow {
+  0% {
+    background-position: 130% 0;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  50% {
+    background-position: -130% 0;
+    opacity: 0.8;
+  }
+
+  65% {
+    background-position: -130% 0;
+    opacity: 0;
+  }
+
+  100% {
+    background-position: 130% 0;
+    opacity: 0;
+  }
+}
+
+.project-card-shine {
+  position: relative;
+  isolation: isolate;
+}
+
+.project-card-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.12) 24%,
+    rgba(255, 255, 255, 0.58) 50%,
+    rgba(191, 219, 254, 0.12) 76%,
+    transparent 100%
+  );
+
+  background-size: 240% 100%;
+  background-position: 130% 0;
+  background-repeat: no-repeat;
+  transition: opacity 180ms ease;
+  will-change: background-position, opacity;
+}
+
+.project-card-shine:hover::after,
+.project-card-shine:active::after {
+  opacity: 1;
+  animation: projectCardShineFlow 3.2s ease-in-out infinite;
+}
+
+.project-card-shine > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes projectCardShineFlow {
+  0% {
+    background-position: 130% 0;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.75;
+  }
+
+  50% {
+    background-position: -130% 0;
+    opacity: 0.75;
+  }
+
+  65% {
+    background-position: -130% 0;
+    opacity: 0;
+  }
+
+  100% {
+    background-position: 130% 0;
+    opacity: 0;
+  }
+}
+
+.project-card-shine {
+  position: relative;
+  isolation: isolate;
+}
+
+.project-card-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.12) 24%,
+    rgba(255, 255, 255, 0.58) 50%,
+    rgba(191, 219, 254, 0.12) 76%,
+    transparent 100%
+  );
+
+  background-size: 240% 100%;
+  background-position: 130% 0;
+  background-repeat: no-repeat;
+  transition: opacity 180ms ease;
+  will-change: background-position, opacity;
+}
+
+.project-card-shine:hover::after,
+.project-card-shine:active::after {
+  opacity: 1;
+  animation: projectCardShineFlow 3.2s ease-in-out infinite;
+}
+
+.project-card-shine > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes projectCardShineFlow {
+  0% {
+    background-position: 130% 0;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.75;
+  }
+
+  50% {
+    background-position: -130% 0;
+    opacity: 0.75;
+  }
+
+  65% {
+    background-position: -130% 0;
+    opacity: 0;
+  }
+
+  100% {
+    background-position: 130% 0;
+    opacity: 0;
+  }
+}
+
+.info-icon-shine {
+  position: relative;
+  isolation: isolate;
+}
+
+.info-icon-shine::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.12) 34%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(191, 219, 254, 0.18) 66%,
+    transparent 100%
+  );
+
+  transform: translateX(-140%) rotate(18deg);
+}
+
+.group:hover .info-icon-shine::after {
+  animation: infoIconShineFlow 1.15s ease-out 1;
+}
+
+@keyframes infoIconShineFlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-140%) rotate(18deg);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(140%) rotate(18deg);
+  }
+}
+
+.skill-icon-shine {
+  position: relative;
+  isolation: isolate;
+}
+
+.skill-icon-shine::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.12) 34%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(191, 219, 254, 0.18) 66%,
+    transparent 100%
+  );
+
+  transform: translateX(-140%) rotate(18deg);
+}
+
+.group:hover .skill-icon-shine::after {
+  animation: skillIconShineFlow 1.15s ease-out 1;
+}
+
+@keyframes skillIconShineFlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-140%) rotate(18deg);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(140%) rotate(18deg);
+  }
+}
+
+.project-preview-icon-shine {
+  position: relative;
+  isolation: isolate;
+}
+
+.project-preview-icon-shine::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.12) 34%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(191, 219, 254, 0.18) 66%,
+    transparent 100%
+  );
+
+  transform: translateX(-140%) rotate(18deg);
+}
+
+.group:hover .project-preview-icon-shine::after {
+  animation: projectPreviewIconShineFlow 1.15s ease-out 1;
+}
+
+@keyframes projectPreviewIconShineFlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-140%) rotate(18deg);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(140%) rotate(18deg);
+  }
+}
+
+.resume-icon-shine {
+  position: relative;
+  isolation: isolate;
+}
+
+.resume-icon-shine::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.12) 34%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(191, 219, 254, 0.18) 66%,
+    transparent 100%
+  );
+
+  transform: translateX(-140%) rotate(18deg);
+}
+
+.group:hover .resume-icon-shine::after {
+  animation: resumeIconShineFlow 1.15s ease-out 1;
+}
+
+@keyframes resumeIconShineFlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-140%) rotate(18deg);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(140%) rotate(18deg);
+  }
+}
+
+.contact-icon-shine {
+  position: relative;
+  isolation: isolate;
+}
+
+.contact-icon-shine::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.12) 34%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(191, 219, 254, 0.18) 66%,
+    transparent 100%
+  );
+
+  transform: translateX(-140%) rotate(18deg);
+}
+
+.group:hover .contact-icon-shine::after {
+  animation: contactIconShineFlow 1.15s ease-out 1;
+}
+
+@keyframes contactIconShineFlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-140%) rotate(18deg);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(140%) rotate(18deg);
+  }
+}
+
+.contact-icon-shine {
+  position: relative;
+  isolation: isolate;
+}
+
+.contact-icon-shine::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.1) 35%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(191, 219, 254, 0.2) 65%,
+    transparent 100%
+  );
+
+  transform: translateX(-145%) rotate(18deg);
+}
+
+.group:hover .contact-icon-shine::after {
+  animation: contactIconShineFlow 1.1s ease-out 1;
+}
+
+@keyframes contactIconShineFlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-145%) rotate(18deg);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(145%) rotate(18deg);
+  }
+}
