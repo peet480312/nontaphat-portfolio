@@ -5,24 +5,37 @@ import { Badge } from "@/components/ui/badge"
 const skillCategories = [
   {
     icon: Palette,
-    title: "Frontend",
+    title: "Web Development",
     color: "from-cyan-500/20",
     skills: [
-      { name: "HTML", level: null },
-      { name: "CSS", level: null },
-      { name: "JavaScript", level: null },
-      { name: "Responsive Design", level: null },
+      { name: "HTML", level: "Basic" },
+      { name: "CSS", level: "Basic" },
+      { name: "JavaScript", level: "Basic" },
+      { name: "Responsive Design", level: "Basic" },
+      { name: "Next.js", level: "Basic" },
     ],
   },
   {
     icon: Brain,
-    title: "AI / Data",
+    title: "AI / Deep Basic",
     color: "from-primary/20",
     skills: [
-      { name: "Python", level: null },
-      { name: "Pandas", level: null },
-      { name: "NumPy", level: null },
+      { name: "Python", level: "Basic" },
+      { name: "Neural Networks", level: "Basic" },
+      { name: "Deep Learning", level: "Basic" },
       { name: "Machine Learning", level: "Basic" },
+    ],
+  },
+  {
+    icon: Database,
+    title: "Data / Database",
+    color: "from-amber-500/20",
+    skills: [
+      { name: "Pandas", level: "Basic" },
+      { name: "NumPy", level: "Basic" },
+      { name: "SQL", level: "Basic" },
+      { name: "MySQL", level: "Basic" },
+      { name: "Data Visualization", level: "Basic" },
     ],
   },
   {
@@ -30,20 +43,11 @@ const skillCategories = [
     title: "Tools",
     color: "from-emerald-500/20",
     skills: [
-      { name: "Git", level: null },
-      { name: "GitHub", level: null },
-      { name: "VS Code", level: null },
-      { name: "Canva", level: null },
-      { name: "Figma", level: "Basic" },
-    ],
-  },
-  {
-    icon: Database,
-    title: "Database",
-    color: "from-amber-500/20",
-    skills: [
-      { name: "MySQL", level: "Basic" },
-      { name: "PostgreSQL", level: "Basic" },
+      { name: "VS Code", level: "Basic" },
+      { name: "GitHub", level: "Basic" },
+      { name: "Git", level: "Basic" },
+      { name: "Vercel", level: "Basic" },
+      { name: "Canva", level: "Basic" },
     ],
   },
 ]
@@ -55,6 +59,7 @@ export function SkillsSection() {
         <div className="mb-12 text-center">
           <div className="group inline-flex cursor-pointer items-center justify-center gap-2 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:drop-shadow-[0_8px_18px_rgba(59,130,246,0.22)] active:-translate-y-0.5 active:scale-[1.02]">
             <Cpu className="h-5 w-5 text-primary transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]" />
+
             <h2 className="gradient-text text-center text-3xl font-bold transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.04] md:text-4xl">
               Skills
             </h2>
@@ -84,6 +89,7 @@ export function SkillsSection() {
                     <h3 className="text-lg font-semibold text-foreground transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.04] group-hover:text-slate-950 group-hover:drop-shadow-[0_6px_14px_rgba(59,130,246,0.2)]">
                       {category.title}
                     </h3>
+
                     <p className="mt-0.5 text-xs text-slate-500">
                       {category.skills.length} skills
                     </p>
@@ -99,11 +105,9 @@ export function SkillsSection() {
                     >
                       <span>{skill.name}</span>
 
-                      {skill.level && (
-                        <span className="rounded-full bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-500 transition-colors duration-300 group-hover:bg-blue-50 group-hover:text-blue-500">
-                          {skill.level}
-                        </span>
-                      )}
+                      <span className="rounded-full bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-500 transition-colors duration-300 group-hover:bg-blue-50 group-hover:text-blue-500">
+                        {skill.level}
+                      </span>
                     </Badge>
                   ))}
                 </div>

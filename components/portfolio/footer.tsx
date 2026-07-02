@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-col items-center justify-center gap-4">
           {/* Logo */}
-            <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
               <Code2 className="h-4 w-4 text-primary" />
             </div>
@@ -19,8 +19,7 @@ export function Footer() {
             &copy; {currentYear} Nontaphat Petgorn. All rights reserved.
           </p>
           <p className="font-code text-center text-xs text-muted-foreground/70">
-            {"// Built with Next.js, Tailwind CSS, and shadcn/ui"}
-          </p>
+            {"Built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui"}          </p>
         </div>
       </div>
     </footer>

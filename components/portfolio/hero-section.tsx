@@ -92,18 +92,18 @@ export function HeroSection() {
             <Terminal className="h-3.5 w-3.5" />
             <span className="font-code">Aspiring AI & Web Developer</span>
           </div>
-          
+
           <div className="hero-reveal mb-4" style={{ animationDelay: "0.18s" }}>
-  <h1
-    data-text="Nontaphat Petgorn"
-    className="hero-name-shine text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl"
-  >
-    Nontaphat Petgorn
-  </h1>
-</div>
-          
+            <h1
+              data-text="Nontaphat Petgorn"
+              className="hero-name-shine text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl"
+            >
+              Nontaphat Petgorn
+            </h1>
+          </div>
+
           <h2 className="hero-reveal mb-2 text-xl font-semibold text-slate-100 md:text-2xl" style={{ animationDelay: "0.28s" }}>
-              Computer Engineering & AI
+            Computer Engineering & AI
           </h2>
           <h3 className="hero-reveal mb-2 text-lg text-slate-200 md:text-xl" style={{ animationDelay: "0.36s" }}>
             Aspiring AI Developer | Frontend Developer
@@ -111,7 +111,7 @@ export function HeroSection() {
           <p className="hero-reveal mb-6 font-code text-sm text-blue-400" style={{ animationDelay: "0.44s" }}>
             @ Walailak University
           </p>
-          
+
           <p className="hero-reveal mb-8 max-w-lg text-slate-300 lg:max-w-none" style={{ animationDelay: "0.52s" }}>
             Computer Engineering & AI student developing practical skills in AI, Web Development, and Data Analysis by building real-world projects.
           </p>
@@ -131,19 +131,6 @@ export function HeroSection() {
 
             <Button
               asChild
-              variant="secondary"
-              size="lg"
-              onMouseMove={handleMouseGlowMove}
-              onMouseLeave={handleMouseGlowReset}
-              className="glow-button hero-btn-secondary group text-sm px-3 py-3 sm:text-base sm:px-6 sm:py-3 whitespace-nowrap border transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg text-white"
-            >
-              <Link href="#resume" onClick={(e) => handleScrollClick(e, "#resume")}>
-                Download Resume
-              </Link>
-            </Button>
-
-            <Button
-              asChild
               variant="outline"
               size="lg"
               onMouseMove={handleMouseGlowMove}
@@ -151,8 +138,7 @@ export function HeroSection() {
               className="glow-button hero-btn-link group text-sm px-3 py-3 sm:text-base sm:px-6 sm:py-3 whitespace-nowrap border transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg text-white"
             >
               <Link
-                href="https://github.com/peet480312/nontaphat-portfolio"
-                target="_blank"
+                href="https://github.com/peet480312" target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-white hover:text-white focus:text-white active:text-white"
               >

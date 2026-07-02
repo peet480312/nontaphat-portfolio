@@ -9,7 +9,6 @@ const navItems = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
-  { href: "#resume", label: "Resume" },
   { href: "#learning", label: "Learning" },
   { href: "#contact", label: "Contact" },
 ]
@@ -43,11 +42,10 @@ export function Navbar({ activeSection }: NavbarProps) {
 
   return (
     <nav
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${isScrolled
           ? "border-b border-blue-500/10 bg-black/70 shadow-lg backdrop-blur-xl"
           : "border-b border-transparent bg-black/50 backdrop-blur-xl"
-      }`}
+        }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Logo */}
@@ -69,11 +67,10 @@ export function Navbar({ activeSection }: NavbarProps) {
               <Link
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`relative rounded-lg px-4 py-2 font-code text-sm font-medium transition-all ${
-                  activeSection === item.href.slice(1)
+                className={`relative rounded-lg px-4 py-2 font-code text-sm font-medium transition-all ${activeSection === item.href.slice(1)
                     ? "bg-blue-600/20 text-blue-400"
                     : "text-slate-300 hover:text-blue-400"
-                }`}
+                  }`}
               >
                 {item.label}
               </Link>
@@ -93,11 +90,10 @@ export function Navbar({ activeSection }: NavbarProps) {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute left-0 right-0 top-full border-b border-blue-500/10 bg-slate-950/95 backdrop-blur-xl transition-all duration-300 md:hidden ${
-          isOpen
+        className={`absolute left-0 right-0 top-full border-b border-blue-500/10 bg-slate-950/95 backdrop-blur-xl transition-all duration-300 md:hidden ${isOpen
             ? "visible translate-y-0 opacity-100"
             : "invisible -translate-y-2 opacity-0"
-        }`}
+          }`}
       >
         <ul className="flex flex-col gap-2 p-6">
           {navItems.map((item) => (
@@ -105,11 +101,10 @@ export function Navbar({ activeSection }: NavbarProps) {
               <Link
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`block rounded-lg px-4 py-3 font-code text-sm font-medium transition-colors ${
-                  activeSection === item.href.slice(1)
+                className={`block rounded-lg px-4 py-3 font-code text-sm font-medium transition-colors ${activeSection === item.href.slice(1)
                     ? "bg-blue-600/20 text-blue-400"
                     : "text-slate-300 hover:text-blue-400"
-                }`}
+                  }`}
               >
                 {item.label}
               </Link>

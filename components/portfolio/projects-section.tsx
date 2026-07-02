@@ -7,15 +7,14 @@ import {
   Clock,
   Calendar,
   Monitor,
-  PawPrint,
-  BrainCircuit,
   BarChart3,
+  Cpu,
 } from "lucide-react"
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-type ProjectStatus = "In Progress" | "Planned" | "Completed"
+type ProjectStatus = "Completed"
 
 interface Project {
   title: string
@@ -34,72 +33,79 @@ const projects: Project[] = [
   {
     title: "Personal Portfolio Website",
     type: "Web Portfolio",
-    timeline: "2026 • Portfolio Project",
+    timeline: "Completed Personal Project",
     description:
-      "เว็บไซต์พอร์ตโฟลิโอส่วนตัวสำหรับแสดงผลงานและทักษะ เพื่อเตรียมตัวฝึกงานและสมัครงาน",
-    status: "In Progress",
-    tech: ["HTML", "CSS", "JavaScript"],
-    github: "#",
+      "เว็บไซต์พอร์ตโฟลิโอส่วนตัวสำหรับแสดงผลงาน ทักษะ และการเรียนรู้ เพื่อเตรียมตัวฝึกงานและสมัครงาน",
+    status: "Completed",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/peet480312/nontaphat-portfolio",
     demo: "#",
     previewLabel: "Portfolio Preview",
     previewIcon: Monitor,
   },
   {
-    title: "Pet Shop Landing Page",
-    type: "Landing Page",
-    timeline: "2026 • Planned Project",
+    title: "ARM Architecture Report",
+    type: "Computer Architecture",
+    timeline: "Completed Course Report",
     description:
-      "หน้าเว็บ Landing Page สำหรับร้านขายสัตว์เลี้ยง ออกแบบให้สวยงามและใช้งานง่าย",
-    status: "Planned",
-    tech: ["HTML", "CSS", "JavaScript"],
+      "รายงานศึกษาเรื่อง ARM Architecture จัดทำเป็นส่วนหนึ่งของรายวิชา COE67-221 Computer Architecture",
+    status: "Completed",
+    tech: ["ARM Architecture", "Computer Architecture", "Technical Report"],
     github: "#",
     demo: "#",
-    previewLabel: "Pet Shop Preview",
-    previewIcon: PawPrint,
+    previewLabel: "ARM Architecture Report",
+    previewIcon: Cpu,
   },
   {
-    title: "Dog & Cat Image Classifier",
-    type: "AI / Machine Learning",
-    timeline: "2026 • Planned Project",
+    title: "Dormitory Management System",
+    type: "Object-Oriented Programming",
+    timeline: "Completed Team Project",
     description:
-      "โมเดล Machine Learning สำหรับจำแนกรูปภาพสุนัขและแมว ใช้เทคนิค Deep Learning",
-    status: "Planned",
-    tech: ["Python", "Machine Learning", "TensorFlow"],
+      "โครงงานระบบจัดการหอพักนักศึกษา จัดทำเป็นส่วนหนึ่งของรายวิชา COE67-231 การเขียนโปรแกรมเชิงวัตถุ",
+    status: "Completed",
+    tech: ["OOP", "System Design", "Team Project"],
     github: "#",
     demo: "#",
-    previewLabel: "AI Model Preview",
-    previewIcon: BrainCircuit,
+    previewLabel: "Dormitory System",
+    previewIcon: Monitor,
   },
   {
-    title: "Pet Shop Sales Dashboard",
-    type: "Data Dashboard",
-    timeline: "2026 • Planned Project",
+    title: "Food Safety Tracking System",
+    type: "Database System Design",
+    timeline: "Completed Team Project",
     description:
-      "Dashboard วิเคราะห์ยอดขายร้านสัตว์เลี้ยง แสดงข้อมูลด้วย Data Visualization",
-    status: "Planned",
-    tech: ["Python", "Pandas", "Data Visualization"],
+      "โครงงานระบบติดตามอาหารปลอดภัยในโรงอาหาร จัดทำในรายวิชา COE67-241 การออกแบบระบบฐานข้อมูล โดยรับผิดชอบงานประสานโครงงานและวิเคราะห์ความต้องการของระบบ",
+    status: "Completed",
+    tech: [
+      "Requirement Analysis",
+      "Project Coordination",
+      "Database Design",
+    ],
     github: "#",
     demo: "#",
-    previewLabel: "Dashboard Preview",
+    previewLabel: "Food Safety System",
     previewIcon: BarChart3,
+  },
+  {
+    title: "Smart Plant Watering System Using ESP32",
+    type: "IoT / Embedded System",
+    timeline: "Completed Team Project",
+    description:
+      "โครงงานระบบรดน้ำต้นไม้อัจฉริยะโดยใช้ ESP32 เพื่อประยุกต์ใช้ความรู้ด้าน IoT และระบบฝังตัวร่วมกับทีม",
+    status: "Completed",
+    tech: ["ESP32", "IoT", "Embedded Systems"],
+    github: "#",
+    demo: "#",
+    previewLabel: "Smart Plant System",
+    previewIcon: Cpu,
   },
 ]
 
-const statusConfig: Record<ProjectStatus, { bg: string; text: string; dot: string }> = {
-  "In Progress": {
+const statusConfig = {
+  Completed: {
     bg: "bg-success/10 border-success/30",
     text: "text-success",
-    dot: "bg-success animate-pulse",
-  },
-  Planned: {
-    bg: "bg-warning/10 border-warning/30",
-    text: "text-warning",
-    dot: "bg-warning",
-  },
-  Completed: {
-    bg: "bg-primary/10 border-primary/30",
-    text: "text-primary",
-    dot: "bg-primary",
+    dot: "bg-success",
   },
 }
 
@@ -110,13 +116,15 @@ export function ProjectsSection() {
         <div className="mb-12 text-center">
           <div className="group inline-flex cursor-pointer items-center justify-center gap-2 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-105 hover:drop-shadow-[0_8px_18px_rgba(59,130,246,0.25)] active:-translate-y-1 active:scale-[1.03]">
             <FolderGit2 className="h-5 w-5 text-primary transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]" />
+
             <h2 className="gradient-text text-center text-3xl font-bold transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 md:text-4xl">
               Projects
             </h2>
           </div>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-500 md:text-base">
-            Selected projects I am building to practice web development, AI, and data skills.
+            Completed course projects and personal projects from my computer
+            engineering studies.
           </p>
         </div>
 
@@ -138,7 +146,9 @@ export function ProjectsSection() {
                       variant="outline"
                       className={`w-fit gap-2 text-xs font-medium transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 ${status.bg} ${status.text}`}
                     >
-                      <span className={`h-1.5 w-1.5 rounded-full ${status.dot}`} />
+                      <span
+                        className={`h-1.5 w-1.5 rounded-full ${status.dot}`}
+                      />
                       {project.status}
                     </Badge>
 
@@ -157,7 +167,10 @@ export function ProjectsSection() {
                       </div>
 
                       <div>
-                        <p className="font-code text-xs text-slate-500">Preview</p>
+                        <p className="font-code text-xs text-slate-500">
+                          Preview
+                        </p>
+
                         <p className="text-sm font-semibold text-slate-800">
                           {project.previewLabel}
                         </p>
@@ -201,6 +214,8 @@ export function ProjectsSection() {
                       {hasGithub ? (
                         <Link
                           href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center gap-1.5 text-sm text-muted-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-105 hover:text-primary hover:drop-shadow-[0_4px_10px_rgba(59,130,246,0.22)]"
                         >
                           <Github className="h-4 w-4" />
@@ -210,9 +225,10 @@ export function ProjectsSection() {
                         <div className="flex cursor-not-allowed items-center gap-1.5 text-sm text-slate-400">
                           <Github className="h-4 w-4" />
                           <span className="font-code">View Code</span>
+
                           <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">
                             <Clock className="h-3 w-3" />
-                            Coming Soon
+                            Not Published
                           </span>
                         </div>
                       )}
@@ -220,6 +236,8 @@ export function ProjectsSection() {
                       {hasDemo ? (
                         <Link
                           href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center gap-1.5 text-sm text-muted-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-105 hover:text-primary hover:drop-shadow-[0_4px_10px_rgba(59,130,246,0.22)]"
                         >
                           <ExternalLink className="h-4 w-4" />
@@ -229,9 +247,10 @@ export function ProjectsSection() {
                         <div className="flex cursor-not-allowed items-center gap-1.5 text-sm text-slate-400">
                           <ExternalLink className="h-4 w-4" />
                           <span className="font-code">Live Demo</span>
+
                           <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">
                             <Clock className="h-3 w-3" />
-                            Coming Soon
+                            Not Available
                           </span>
                         </div>
                       )}
@@ -239,7 +258,7 @@ export function ProjectsSection() {
 
                     {!hasGithub && !hasDemo && (
                       <p className="text-xs text-slate-400">
-                        Code and demo will be available soon.
+                        Completed as part of a course project or report.
                       </p>
                     )}
                   </div>
