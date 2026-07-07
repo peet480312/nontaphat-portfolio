@@ -5,7 +5,6 @@ import {
   Bot,
   Code,
   BarChart3,
-  Sparkles,
 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -14,19 +13,22 @@ const infoItems = [
     icon: GraduationCap,
     label: "Education",
     value: "Computer Engineering and AI",
-    description: "Focused on software development, AI, and practical engineering skills.",
+    description:
+      "Focused on software development, AI, and practical engineering skills.",
   },
   {
     icon: Building2,
     label: "University",
     value: "Walailak University",
-    description: "Currently building academic knowledge and real-world project experience.",
+    description:
+      "Currently building academic knowledge and real-world project experience.",
   },
   {
     icon: MapPin,
     label: "Location",
     value: "Thailand",
-    description: "Open to internship and entry-level opportunities in tech-related fields.",
+    description:
+      "Open to internship and entry-level opportunities in tech-related fields.",
   },
 ]
 
@@ -65,9 +67,8 @@ export function AboutSection() {
       }}
     >
       <div className="mx-auto max-w-6xl px-6">
-        <div className="about-title-pop mb-2 flex items-center justify-center gap-2">
-          <Sparkles className="about-title-icon h-5 w-5 text-primary" />
-          <h2 className="gradient-text text-center text-3xl font-bold md:text-4xl">
+        <div className="about-title-pop mb-2 text-center">
+          <h2 className="gradient-text text-3xl font-bold md:text-4xl">
             About Me
           </h2>
         </div>

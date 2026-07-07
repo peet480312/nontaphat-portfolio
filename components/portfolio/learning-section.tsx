@@ -1,4 +1,4 @@
-import { Check, Circle, BookOpen } from "lucide-react"
+import { Check, Circle } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 interface LearningItem {
@@ -28,7 +28,6 @@ export function LearningSection() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-12 text-center">
           <div className="group inline-flex cursor-pointer items-center justify-center gap-2 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:drop-shadow-[0_8px_18px_rgba(59,130,246,0.22)] active:-translate-y-0.5 active:scale-[1.02]">
-            <BookOpen className="h-5 w-5 text-primary transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]" />
 
             <h2 className="gradient-text text-center text-3xl font-bold transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.04] md:text-4xl">
               Learning Journey
@@ -62,16 +61,16 @@ export function LearningSection() {
             <Card
               key={item.text}
               className={`gradient-border group overflow-hidden rounded-2xl transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_12px_30px_rgba(59,130,246,0.12)] active:-translate-y-0.5 active:scale-[1.005] ${item.completed
-                  ? "border-success/30 bg-success/5"
-                  : "border-blue-200/60 bg-white/90"
+                ? "border-success/30 bg-success/5"
+                : "border-blue-200/60 bg-white/90"
                 }`}
               style={{ animationDelay: `${index * 50}ms` }}
             >
               <CardContent className="flex items-center gap-4 p-3.5">
                 <div
                   className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 ${item.completed
-                      ? "bg-success text-success-foreground shadow-[0_8px_18px_rgba(34,197,94,0.22)]"
-                      : "border border-blue-200 bg-blue-50/70 text-slate-500 group-hover:border-blue-300 group-hover:bg-blue-100 group-hover:text-blue-600"
+                    ? "bg-success text-success-foreground shadow-[0_8px_18px_rgba(34,197,94,0.22)]"
+                    : "border border-blue-200 bg-blue-50/70 text-slate-500 group-hover:border-blue-300 group-hover:bg-blue-100 group-hover:text-blue-600"
                     }`}
                 >
                   {item.completed ? (
@@ -90,8 +89,8 @@ export function LearningSection() {
 
                 <span
                   className={`rounded-full px-2.5 py-1 font-code text-xs transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 ${item.completed
-                      ? "bg-success/10 text-success"
-                      : "bg-blue-50 text-blue-500"
+                    ? "bg-success/10 text-success"
+                    : "bg-blue-50 text-blue-500"
                     }`}
                 >
                   {item.completed ? "done" : "in progress"}

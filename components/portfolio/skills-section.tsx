@@ -1,4 +1,4 @@
-import { Palette, Brain, Wrench, Database, Cpu } from "lucide-react"
+import { Palette, Brain, Wrench, Database } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
@@ -57,9 +57,7 @@ export function SkillsSection() {
     <section id="skills" className="py-20">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-12 text-center">
-          <div className="group inline-flex cursor-pointer items-center justify-center gap-2 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:drop-shadow-[0_8px_18px_rgba(59,130,246,0.22)] active:-translate-y-0.5 active:scale-[1.02]">
-            <Cpu className="h-5 w-5 text-primary transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]" />
-
+          <div className="group inline-flex cursor-pointer items-center justify-center transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:drop-shadow-[0_8px_18px_rgba(59,130,246,0.22)] active:-translate-y-0.5 active:scale-[1.02]">
             <h2 className="gradient-text text-center text-3xl font-bold transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.04] md:text-4xl">
               Skills
             </h2>

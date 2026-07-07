@@ -1,0 +1,42 @@
+# ทำใน Terminal ของโฟลเดอร์เว็บที่เพิ่งสร้าง
+
+# 1. เริ่มใช้ Git
+git init
+
+# 2. เลือกไฟล์ทั้งหมดในโฟลเดอร์
+git add .
+
+# 3. บันทึกงานรอบแรก
+git commit -m "Initial commit"
+
+# 4. ตั้งชื่อ branch หลัก
+git branch -M main
+
+# 5. เชื่อม GitHub
+# เปลี่ยนคำว่า ชื่อโปรเจกต์ใหม่ เป็นชื่อ Repository ที่สร้างบน GitHub
+git remote add origin https://github.com/peet480312/resume-exam.git
+
+# 6. อัปโหลดขึ้น GitHub
+git push -u origin main
+
+หลังจากอัปครั้งแรกแล้ว ถ้าอาจารย์ให้แก้ 3 จุด ให้ใช้แค่ชุดนี้:
+
+git add .
+git commit -m "Update resume"
+git push
+
+npm.cmd run dev
+http://localhost:3001
+
+
+
+
+
+
+
+
+
+
+git add .
+git commit -m "Update resume"
+git push

@@ -3,7 +3,6 @@ import type { LucideIcon } from "lucide-react"
 import {
   Github,
   ExternalLink,
-  FolderGit2,
   Clock,
   Calendar,
   Monitor,
@@ -114,9 +113,7 @@ export function ProjectsSection() {
     <section id="projects" className="bg-secondary py-20">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-12 text-center">
-          <div className="group inline-flex cursor-pointer items-center justify-center gap-2 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-105 hover:drop-shadow-[0_8px_18px_rgba(59,130,246,0.25)] active:-translate-y-1 active:scale-[1.03]">
-            <FolderGit2 className="h-5 w-5 text-primary transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]" />
-
+          <div className="group inline-flex cursor-pointer items-center justify-center transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-105 hover:drop-shadow-[0_8px_18px_rgba(59,130,246,0.25)] active:-translate-y-1 active:scale-[1.03]">
             <h2 className="gradient-text text-center text-3xl font-bold transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 md:text-4xl">
               Projects
             </h2>
