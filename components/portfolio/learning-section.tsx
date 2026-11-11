@@ -1,104 +1,186 @@
-import { Check, Circle } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+
+import {
+  BookOpen,
+  Code2,
+  Braces,
+  Database,
+  Globe,
+} from "lucide-react"
+
 import { Card, CardContent } from "@/components/ui/card"
 
+// ========================================
+// Learning Item Types
+// ========================================
+
 interface LearningItem {
-  text: string
-  completed: boolean
+  title: string
+  description: string
+  icon: LucideIcon
 }
 
+// ========================================
+// Currently Learning Data
+// ========================================
+
 const learningItems: LearningItem[] = [
-  { text: "HTML & CSS พื้นฐาน", completed: true },
-  { text: "JavaScript เบื้องต้น", completed: true },
-  { text: "Git & GitHub", completed: true },
-  { text: "Responsive Web Design", completed: true },
-  { text: "Python สำหรับ Data Science", completed: true },
-  { text: "Machine Learning พื้นฐาน", completed: true },
-  { text: "React & Next.js Fundamentals", completed: true },
-  { text: "Database (SQL)", completed: true },
+  {
+    title: "React & Next.js",
+
+    description:
+      "Improving component development, state management, and React fundamentals to build more interactive and maintainable web applications.",
+
+    icon: Code2,
+  },
+
+  {
+    title: "JavaScript & TypeScript",
+
+    description:
+      "Strengthening programming fundamentals, asynchronous operations, type safety, and code organization for frontend development.",
+
+    icon: Braces,
+  },
+
+  {
+    title: "Database & SQL",
+
+    description:
+      "Learning database queries, data relationships, and database integration to better understand how web applications manage information.",
+
+    icon: Database,
+  },
+
+  {
+    title: "API Integration",
+
+    description:
+      "Learning how to connect frontend applications with backend services and APIs, handle responses, and display dynamic data.",
+
+    icon: Globe,
+  },
 ]
 
+// ========================================
+// Learning Section Component
+// ========================================
 
 export function LearningSection() {
-  const completedCount = learningItems.filter((item) => item.completed).length
-  const totalCount = learningItems.length
-  const progressPercent = Math.round((completedCount / totalCount) * 100)
-
   return (
-    <section id="learning" className="py-20">
+    <section
+      id="learning"
+      className="scroll-mt-24 py-20"
+    >
       <div className="mx-auto max-w-6xl px-6">
+
+        {/* ========================================
+            Section Header
+        ======================================== */}
+
         <div className="mb-12 text-center">
+
           <div className="group inline-flex cursor-pointer items-center justify-center gap-2 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:drop-shadow-[0_8px_18px_rgba(59,130,246,0.22)] active:-translate-y-0.5 active:scale-[1.02]">
 
+            {/* Section Icon */}
+
+            <BookOpen
+              className="h-5 w-5 text-primary transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]"
+            />
+
+            {/* Section Title */}
+
             <h2 className="gradient-text text-center text-3xl font-bold transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.04] md:text-4xl">
-              Learning Journey
+              Currently Learning
             </h2>
+
           </div>
+
+          {/* Section Description */}
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-500 md:text-base">
-            My learning roadmap for developing web development, AI, and data skills.
+            Technologies and concepts I am currently improving
+            to strengthen my frontend and web application
+            development skills.
           </p>
+
         </div>
 
-        <div className="mx-auto mb-8 max-w-2xl">
-          <div className="mb-2 flex items-center justify-between text-sm">
-            <span className="text-muted-foreground">Progress</span>
+        {/* ========================================
+            Learning Cards Grid
+        ======================================== */}
 
-            <span className="font-code text-primary">
-              {completedCount}/{totalCount} ({progressPercent}%)
-            </span>
-          </div>
+        <div className="grid gap-6 md:grid-cols-2">
 
-          <div className="h-2 overflow-hidden rounded-full bg-muted">
-            <div
-              className="h-full rounded-full bg-gradient-to-r from-primary to-primary/70 shadow-[0_0_14px_rgba(59,130,246,0.28)] transition-all duration-500"
-              style={{ width: `${progressPercent}%` }}
-            />
-          </div>
+          {learningItems.map((item, index) => {
+
+            const LearningIcon = item.icon
+
+            return (
+              <Card
+                key={item.title}
+                className="gradient-border group h-full overflow-hidden rounded-2xl border border-blue-200/60 bg-white/90 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-blue-300/70 hover:shadow-[0_12px_30px_rgba(59,130,246,0.12)] active:-translate-y-0.5 active:scale-[1.005]"
+                style={{
+                  animationDelay: `${index * 50}ms`,
+                }}
+              >
+
+                <CardContent className="flex h-full items-start gap-4 p-6">
+
+                  {/* ========================================
+                      Learning Icon
+                  ======================================== */}
+
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-blue-200 bg-blue-50/70 text-blue-600 shadow-[0_8px_18px_rgba(59,130,246,0.10)] transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:scale-105 group-hover:border-blue-300 group-hover:bg-blue-100 group-hover:shadow-[0_10px_24px_rgba(59,130,246,0.18)]">
+
+                    <LearningIcon
+                      className="h-6 w-6 transition-all duration-300 ease-out group-hover:scale-110"
+                    />
+
+                  </div>
+
+                  {/* ========================================
+                      Learning Information
+                  ======================================== */}
+
+                  <div className="min-w-0 flex-1">
+
+                    {/* Learning Title and Status */}
+
+                    <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
+
+                      <h3 className="text-lg font-semibold text-slate-900 transition-all duration-300 ease-out group-hover:text-primary">
+                        {item.title}
+                      </h3>
+
+                      {/* Learning Status */}
+
+                      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 font-code text-xs text-blue-600 transition-all duration-300 ease-out group-hover:border-blue-300 group-hover:bg-blue-100">
+
+                        <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
+
+                        In Progress
+
+                      </span>
+
+                    </div>
+
+                    {/* Learning Description */}
+
+                    <p className="text-sm leading-relaxed text-slate-500 transition-colors duration-300 ease-out group-hover:text-slate-600">
+                      {item.description}
+                    </p>
+
+                  </div>
+
+                </CardContent>
+
+              </Card>
+            )
+          })}
+
         </div>
 
-        <div className="mx-auto max-w-2xl space-y-3">
-          {learningItems.map((item, index) => (
-            <Card
-              key={item.text}
-              className={`gradient-border group overflow-hidden rounded-2xl transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_12px_30px_rgba(59,130,246,0.12)] active:-translate-y-0.5 active:scale-[1.005] ${item.completed
-                ? "border-success/30 bg-success/5"
-                : "border-blue-200/60 bg-white/90"
-                }`}
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              <CardContent className="flex items-center gap-4 p-3.5">
-                <div
-                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 ${item.completed
-                    ? "bg-success text-success-foreground shadow-[0_8px_18px_rgba(34,197,94,0.22)]"
-                    : "border border-blue-200 bg-blue-50/70 text-slate-500 group-hover:border-blue-300 group-hover:bg-blue-100 group-hover:text-blue-600"
-                    }`}
-                >
-                  {item.completed ? (
-                    <Check className="h-4 w-4" />
-                  ) : (
-                    <Circle className="h-3.5 w-3.5" />
-                  )}
-                </div>
-
-                <span
-                  className={`flex-1 text-sm font-medium transition-all duration-300 ease-out group-hover:translate-x-1 ${item.completed ? "text-foreground" : "text-slate-500"
-                    }`}
-                >
-                  {item.text}
-                </span>
-
-                <span
-                  className={`rounded-full px-2.5 py-1 font-code text-xs transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 ${item.completed
-                    ? "bg-success/10 text-success"
-                    : "bg-blue-50 text-blue-500"
-                    }`}
-                >
-                  {item.completed ? "done" : "in progress"}
-                </span>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
       </div>
     </section>
   )
