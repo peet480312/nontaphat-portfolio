@@ -43,8 +43,6 @@ interface Project {
   demo?: string
   previewLabel: string
   previewIcon: LucideIcon
-
-  // Controls whether project appears on website
   showInPortfolio: boolean
 }
 
@@ -60,7 +58,9 @@ const projects: Project[] = [
 
   {
     title: "SkillSync AI",
+
     type: "Web Application",
+
     timeline: "2026 • Completed Project",
 
     description:
@@ -83,18 +83,21 @@ const projects: Project[] = [
       "https://skillsync-ai-henna.vercel.app",
 
     previewLabel: "SkillSync AI Preview",
+
     previewIcon: Bot,
 
     showInPortfolio: true,
   },
 
   // ========================================
-  // 2. Personal Portfolio - Visible
+  // 2. Personal Portfolio Website - Visible
   // ========================================
 
   {
     title: "Personal Portfolio Website",
+
     type: "Frontend Development",
+
     timeline: "2026 • In Progress",
 
     description:
@@ -112,7 +115,15 @@ const projects: Project[] = [
     github:
       "https://github.com/peet480312/nontaphat-portfolio",
 
+    // ========================================
+    // NEW: Personal Portfolio Live Demo
+    // ========================================
+
+    demo:
+      "https://nontaphat-portfolio.vercel.app",
+
     previewLabel: "Portfolio Preview",
+
     previewIcon: Monitor,
 
     showInPortfolio: true,
@@ -124,7 +135,9 @@ const projects: Project[] = [
 
   {
     title: "WU Canteen Website",
+
     type: "Frontend Development",
+
     timeline: "2026 • Completed Web Project",
 
     description:
@@ -140,20 +153,21 @@ const projects: Project[] = [
     ],
 
     previewLabel: "WU Canteen Preview",
+
     previewIcon: Utensils,
 
-    // Hidden until the project is ready
     showInPortfolio: false,
   },
 
   // ========================================
-  // Hidden Projects
-  // Can be enabled later
+  // 4. Pet Shop Landing Page - Hidden
   // ========================================
 
   {
     title: "Pet Shop Landing Page",
+
     type: "Frontend Web Project",
+
     timeline: "2026 • In Progress",
 
     description:
@@ -170,14 +184,21 @@ const projects: Project[] = [
     ],
 
     previewLabel: "Pet Shop Preview",
+
     previewIcon: PawPrint,
 
     showInPortfolio: false,
   },
 
+  // ========================================
+  // 5. Dormitory Management System - Hidden
+  // ========================================
+
   {
     title: "Dormitory Management System",
+
     type: "Object-Oriented Programming",
+
     timeline: "2026 • Completed Team Project",
 
     description:
@@ -192,14 +213,21 @@ const projects: Project[] = [
     ],
 
     previewLabel: "Dormitory System",
+
     previewIcon: Building2,
 
     showInPortfolio: false,
   },
 
+  // ========================================
+  // 6. Food Safety Tracking System - Hidden
+  // ========================================
+
   {
     title: "Food Safety Tracking System",
+
     type: "Database System Design",
+
     timeline: "2026 • Completed Team Project",
 
     description:
@@ -214,14 +242,21 @@ const projects: Project[] = [
     ],
 
     previewLabel: "Food Safety System",
+
     previewIcon: Database,
 
     showInPortfolio: false,
   },
 
+  // ========================================
+  // 7. Smart Plant Watering System - Hidden
+  // ========================================
+
   {
     title: "Smart Plant Watering System Using ESP32",
+
     type: "IoT / Embedded System",
+
     timeline: "2026 • Completed Team Project",
 
     description:
@@ -236,14 +271,21 @@ const projects: Project[] = [
     ],
 
     previewLabel: "Smart Plant System",
+
     previewIcon: Sprout,
 
     showInPortfolio: false,
   },
 
+  // ========================================
+  // 8. ARM Architecture Report - Hidden
+  // ========================================
+
   {
     title: "ARM Architecture Report",
+
     type: "Computer Architecture",
+
     timeline: "2026 • Completed Course Report",
 
     description:
@@ -258,6 +300,7 @@ const projects: Project[] = [
     ],
 
     previewLabel: "ARM Architecture Report",
+
     previewIcon: Cpu,
 
     showInPortfolio: false,
@@ -276,6 +319,7 @@ const statusConfig: Record<
     dot: string
   }
 > = {
+
   Completed: {
     bg: "bg-emerald-500/10 border-emerald-400/30",
     text: "text-emerald-600",
@@ -304,7 +348,7 @@ const visibleProjects = projects.filter(
 )
 
 // ========================================
-// Project Card
+// Project Card Component
 // ========================================
 
 function ProjectCard({
@@ -312,6 +356,7 @@ function ProjectCard({
 }: {
   project: Project
 }) {
+
   const status = statusConfig[project.status]
 
   const hasGithub = Boolean(
@@ -325,12 +370,16 @@ function ProjectCard({
   const PreviewIcon = project.previewIcon
 
   return (
+
     <Card
       className="project-card-shine card-glow group overflow-hidden rounded-2xl border border-blue-200/50 bg-white/95 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.015] hover:border-blue-300/70 hover:shadow-[0_18px_45px_rgba(59,130,246,0.16)] active:-translate-y-1 active:scale-[1.005]"
     >
+
       <CardHeader className="relative z-10 space-y-4 pb-2">
 
-        {/* Status and Project Type */}
+        {/* ========================================
+            Project Status and Type
+        ======================================== */}
 
         <div className="flex flex-wrap items-center justify-between gap-3">
 
@@ -338,23 +387,29 @@ function ProjectCard({
             variant="outline"
             className={`w-fit gap-2 text-xs font-medium transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 ${status.bg} ${status.text}`}
           >
+
             <span
               className={`h-1.5 w-1.5 rounded-full ${status.dot}`}
             />
 
             {project.status}
+
           </Badge>
 
           <Badge
             variant="secondary"
             className="cursor-default border border-blue-200/60 bg-blue-50/70 px-3 py-1 font-code text-xs text-blue-600 transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105"
           >
+
             {project.type}
+
           </Badge>
 
         </div>
 
-        {/* Project Preview */}
+        {/* ========================================
+            Project Preview
+        ======================================== */}
 
         <div className="relative overflow-hidden rounded-xl border border-blue-100/70 bg-gradient-to-br from-blue-50/80 via-white to-blue-100/60 p-4">
 
@@ -362,7 +417,9 @@ function ProjectCard({
 
             <div className="project-preview-icon-shine relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-blue-100 text-blue-600 shadow-[0_0_18px_rgba(59,130,246,0.15)] transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-[0_0_22px_rgba(59,130,246,0.22)]">
 
-              <PreviewIcon className="relative z-20 h-6 w-6 transition-all duration-300 ease-out group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]" />
+              <PreviewIcon
+                className="relative z-20 h-6 w-6 transition-all duration-300 ease-out group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]"
+              />
 
             </div>
 
@@ -386,6 +443,10 @@ function ProjectCard({
 
       </CardHeader>
 
+      {/* ========================================
+          Project Information
+      ======================================== */}
+
       <CardContent className="relative z-10 space-y-4">
 
         {/* Project Title */}
@@ -393,22 +454,30 @@ function ProjectCard({
         <div className="space-y-1">
 
           <h3 className="text-xl font-semibold text-foreground transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:scale-[1.03] group-hover:text-primary group-hover:drop-shadow-[0_6px_14px_rgba(59,130,246,0.22)]">
+
             {project.title}
+
           </h3>
 
           <p className="font-code text-xs text-slate-400">
+
             {project.timeline}
+
           </p>
 
         </div>
 
-        {/* Description */}
+        {/* Project Description */}
 
         <p className="text-sm leading-relaxed text-muted-foreground">
+
           {project.description}
+
         </p>
 
-        {/* Technologies */}
+        {/* ========================================
+            Technologies
+        ======================================== */}
 
         <div className="flex flex-wrap gap-2">
 
@@ -419,7 +488,9 @@ function ProjectCard({
               variant="secondary"
               className="cursor-default border border-border bg-background/50 font-code text-xs transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:border-primary hover:bg-primary/10 hover:text-primary hover:shadow-[0_8px_18px_rgba(59,130,246,0.16)]"
             >
+
               {tech}
+
             </Badge>
 
           ))}
@@ -427,6 +498,7 @@ function ProjectCard({
         </div>
 
         {/* ========================================
+            Project Links
             Only Show Available Links
         ======================================== */}
 
@@ -436,7 +508,9 @@ function ProjectCard({
 
             <div className="flex flex-wrap gap-4">
 
-              {/* GitHub */}
+              {/* ========================================
+                  View Code Button
+              ======================================== */}
 
               {hasGithub && project.github && (
 
@@ -457,7 +531,9 @@ function ProjectCard({
 
               )}
 
-              {/* Live Demo */}
+              {/* ========================================
+                  Live Demo Button
+              ======================================== */}
 
               {hasDemo && project.demo && (
 
@@ -471,7 +547,7 @@ function ProjectCard({
                   <ExternalLink className="h-4 w-4" />
 
                   <span className="font-code">
-                    Live Demo
+                    Live Website
                   </span>
 
                 </Link>
@@ -487,6 +563,7 @@ function ProjectCard({
       </CardContent>
 
     </Card>
+
   )
 }
 
@@ -495,36 +572,49 @@ function ProjectCard({
 // ========================================
 
 export function ProjectsSection() {
+
   return (
+
     <section
       id="projects"
       className="scroll-mt-24 bg-secondary py-20"
     >
+
       <div className="mx-auto max-w-6xl px-6">
 
-        {/* Section Title */}
+        {/* ========================================
+            Section Title
+        ======================================== */}
 
         <div className="mb-12 text-center">
 
           <div className="group inline-flex cursor-pointer items-center justify-center gap-2 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-105 hover:drop-shadow-[0_8px_18px_rgba(59,130,246,0.25)] active:-translate-y-1 active:scale-[1.03]">
 
-            <FolderGit2 className="h-5 w-5 text-primary transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]" />
+            <FolderGit2
+              className="h-5 w-5 text-primary transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]"
+            />
 
             <h2 className="gradient-text text-center text-3xl font-bold transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-105 md:text-4xl">
+
               Projects
+
             </h2>
 
           </div>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-500 md:text-base">
+
             Selected web development projects demonstrating
             my practical experience in building responsive
             websites and web applications.
+
           </p>
 
         </div>
 
-        {/* Selected Projects */}
+        {/* ========================================
+            Visible Projects
+        ======================================== */}
 
         <div className="grid gap-6 md:grid-cols-2">
 
@@ -540,6 +630,8 @@ export function ProjectsSection() {
         </div>
 
       </div>
+
     </section>
+
   )
 }
