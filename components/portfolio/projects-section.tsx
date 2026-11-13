@@ -98,12 +98,14 @@ const projects: Project[] = [
 
     type: "Frontend Development",
 
-    timeline: "2026 • In Progress",
+    // Updated: Project Completed
+    timeline: "2026 • Completed Project",
 
     description:
       "Personal portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features responsive layouts, interactive UI components, smooth navigation, and project showcases designed for internship applications.",
 
-    status: "In Progress",
+    // Updated: Completed Status
+    status: "Completed",
 
     tech: [
       "Next.js",
@@ -114,10 +116,6 @@ const projects: Project[] = [
 
     github:
       "https://github.com/peet480312/nontaphat-portfolio",
-
-    // ========================================
-    // NEW: Personal Portfolio Live Demo
-    // ========================================
 
     demo:
       "https://nontaphat-portfolio.vercel.app",
@@ -532,7 +530,7 @@ function ProjectCard({
               )}
 
               {/* ========================================
-                  Live Demo Button
+                  Live Website Button
               ======================================== */}
 
               {hasDemo && project.demo && (

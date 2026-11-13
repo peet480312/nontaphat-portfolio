@@ -145,7 +145,10 @@ export function HeroSection() {
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-12 px-6 lg:flex-row">
 
-        {/* Content */}
+        {/* ========================================== */}
+        {/* HERO CONTENT */}
+        {/* ========================================== */}
+
         <div className="flex-1 text-center lg:text-left">
 
           {/* Internship Badge */}
@@ -222,7 +225,10 @@ export function HeroSection() {
             real-world projects.
           </p>
 
-          {/* Action Buttons */}
+          {/* ========================================== */}
+          {/* ACTION BUTTONS */}
+          {/* ========================================== */}
+
           <div
             className="hero-reveal flex flex-row flex-nowrap justify-center gap-2 sm:gap-4 lg:justify-start"
             style={{
@@ -230,7 +236,10 @@ export function HeroSection() {
             }}
           >
 
-            {/* View Projects */}
+            {/* ====================================== */}
+            {/* VIEW PROJECTS BUTTON */}
+            {/* ====================================== */}
+
             <Button
               asChild
               size="lg"
@@ -248,7 +257,10 @@ export function HeroSection() {
               </Link>
             </Button>
 
-            {/* Download Resume */}
+            {/* ====================================== */}
+            {/* VIEW MY RESUME BUTTON */}
+            {/* ====================================== */}
+
             <Button
               asChild
               variant="secondary"
@@ -263,11 +275,14 @@ export function HeroSection() {
                   handleScrollClick(e, "#resume")
                 }
               >
-                Download Resume
+                View My Resume
               </Link>
             </Button>
 
-            {/* GitHub */}
+            {/* ====================================== */}
+            {/* GITHUB BUTTON */}
+            {/* ====================================== */}
+
             <Button
               asChild
               variant="outline"
@@ -283,6 +298,7 @@ export function HeroSection() {
                 className="inline-flex items-center text-white hover:text-white focus:text-white active:text-white"
               >
                 <Github className="mr-2 h-4 w-4 text-white transition-colors group-hover:text-white group-focus:text-white group-active:text-white" />
+
                 GitHub
               </Link>
             </Button>
@@ -290,7 +306,10 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Avatar with Tech Design */}
+        {/* ========================================== */}
+        {/* AVATAR WITH TECH DESIGN */}
+        {/* ========================================== */}
+
         <div className="flex-shrink-0">
           <div className="relative">
 
@@ -411,7 +430,10 @@ export function HeroSection() {
 
               <div className="np-tech-orbit-ring-soft absolute inset-3 rounded-full border border-sky-200/20" />
 
-              {/* Profile Image */}
+              {/* ====================================== */}
+              {/* PROFILE IMAGE */}
+              {/* ====================================== */}
+
               <div className="np-profile-frame absolute inset-0 z-10 flex items-center justify-center overflow-hidden rounded-full border border-cyan-400/40 bg-slate-950/80 shadow-[0_0_24px_rgba(14,165,233,0.18)]">
 
                 {showProfileImage ? (
@@ -437,7 +459,10 @@ export function HeroSection() {
 
       </div>
 
-      {/* Scroll Indicator */}
+      {/* ========================================== */}
+      {/* SCROLL INDICATOR */}
+      {/* ========================================== */}
+
       <div
         className="hero-reveal mt-12 text-center"
         style={{
@@ -458,8 +483,6 @@ export function HeroSection() {
           <ArrowDown className="scroll-indicator-arrow h-5 w-5 transition-transform duration-300 ease-out" />
         </Link>
       </div>
-
-      {/* Decorative elements removed for cleaner layout */}
 
     </section>
   )
